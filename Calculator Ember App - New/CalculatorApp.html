@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator App</title>
+    <link rel="stylesheet" type="text/css" href="CalculatorAppStyle.css">
+</head>
+
+<body>
+    <script type = "text/x-handlebars">
+        {{outlet}}
+    </script>
+    
+    <script type = "text/x-handlebars" data-template-name = "index">
+                {{view App.CalculatorView}}
+    </script>
+    
+    <script type = "text/x-handlebars" data-template-name = "calculator">
+        <div class = "calciClass">
+            <div>
+                {{view App.DisplayView}}
+            </div>
+        
+            <div class = "keys" style = "display: inline-block">
+                {{view App.ClearView}}
+                {{view App.NumericButtonView}}
+                {{view App.OperatorButtonView}}
+            </div>
+        </div>
+    </script>
+    
+    <script type = "text/x-handlebars" data-template-name = "display">
+        <div>
+            <input type="text" class="screen" disabled="disabled" readonly="readonly">
+        </div>
+    </script>
+    
+    
+    <script type = "text/x-handlebars" data-template-name = "clear">
+        <div>
+            <input type="button" class="button operator" value="C"> </input>
+        </div>
+    </script>
+    
+    <script type = "text/x-handlebars" data-template-name = "numeric-button">
+        <div>
+            {{#with controller.content.data}}
+                {{#each button in buttons}}  
+                    <input type = "button" {{bind-attr value = button.value}} {{bind-attr class = button.class}}> </input>
+                {{/each}}
+            {{/with}}
+        </div>
+    </script>
+    
+    <script type = "text/x-handlebars" data-template-name = "operator-button">
+        <div>
+            {{#with controller.content.data}}
+                {{#each button in buttons}}  
+                    <input type = "button" {{bind-attr value = button.value}} {{bind-attr class = button.class}}> </input>
+                {{/each}}
+            {{/with}}
+        </div>
+    </script>
+     
+    <script src="js/libs/jquery-1.10.2.js"></script>
+	<script src="js/libs/handlebars-1.1.2.js"></script>
+	<script src="js/libs/ember-1.5.1.js"></script>
+    <script src="js/libs/ember-data.js"></script>
+    <script src="CalculatorController.js"></script>
+    <script src="CalculatorModel.js"></script>
+    <script src="CalculatorView.js"></script>
+    <script src="NumericButtonModel.js"></script>
+    <script src="NumericButtonController.js"></script>
+    <script src="NumericButtonView.js"></script>  
+    <script src="OperatorButtonModel.js"></script>
+    <script src="OperatorButtonController.js"></script>
+    <script src="OperatorButtonView.js"></script> 
+    <script src="DisplayController.js"></script> 
+    <script src="DisplayView.js"></script>
+    <script src="DisplayModel.js"></script>
+    <script src="ButtonView.js"></script>
+    <script src="ButtonModel.js"></script>
+    <script src="ButtonController.js"></script>
+    <script src="ClearController.js"></script>
+    <script src="ClearModel.js"></script>
+    <script src="ClearView.js"></script>
+</body>
+</html>
